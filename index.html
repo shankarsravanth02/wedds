@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sravanth Weds Sowmya – Kotra Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+Telugu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #F0D98B;
+  --gold-dark:  #8B6310;
+  --maroon:     #7A1A1A;
+  --maroon-d:   #4A0A0A;
+  --saffron:    #D4680A;
+  --cream:      #FFFDF5;
+  --ivory:      #FEF9EC;
+  --brown:      #3D1800;
+}
+
+body {
+  background: radial-gradient(ellipse at center, #2a0e00 0%, #0f0500 100%);
+  min-height: 100vh;
+  font-family: 'EB Garamond', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 12px 100px;
+  overflow-x: hidden;
+}
+
+/* ── GLOW WRAPPER ── */
+.glow-wrap {
+  width: 100%;
+  max-width: 700px;
+  box-shadow:
+    0 0 0 1px var(--gold-dark),
+    0 0 40px rgba(201,168,76,0.35),
+    0 0 100px rgba(201,168,76,0.15);
+  position: relative;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.card {
+  background: var(--ivory);
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+/* ══ BACKGROUND MANDALA ══ */
+.mandala {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.mandala svg {
+  width: 90%;
+  opacity: 0.04;
+  animation: spin 120s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ══ GOLD BORDER FRAME ══ */
+.frame {
+  position: absolute;
+  inset: 12px;
+  border: 2px solid var(--gold);
+  pointer-events: none;
+  z-index: 5;
+}
+.frame::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 0.5px solid rgba(201,168,76,0.4);
+}
+
+/* ══ CORNER ORNAMENTS ══ */
+.c { position: absolute; width: 45px; height: 45px; z-index: 6; }
+.c-tl { top: 12px;  left: 12px; }
+.c-tr { top: 12px;  right: 12px;  transform: scaleX(-1); }
+.c-bl { bottom: 12px; left: 12px;  transform: scaleY(-1); }
+.c-br { bottom: 12px; right: 12px; transform: scale(-1,-1); }
+
+/* ══ TORANA ══ */
+.torana-row {
+  display: flex;
+  justify-content: center;
+  padding: 24px 24px 0;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+.flag { width: 18px; height: 32px; position: relative; flex-shrink: 0; margin: 0 1px; }
+.flag::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 15px; height: 26px;
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+}
+.f-s::before { background: #E07B29; }
+.f-r::before { background: #8B0000; }
+.f-g::before { background: #1a6e1a; }
+.f-y::before { background: #C9A84C; }
+
+/* ══ CENTERED AUSPICIOUS HEADER ══ */
+.auspicious-sub {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 12px auto 4px;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  color: var(--maroon);
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ══ HEADER ══ */
+.header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 10px 24px 0;
+}
+.deity-logo { font-size: 2.2rem; margin-bottom: 4px; }
+.h-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(160deg, var(--gold-dark) 0%, var(--gold) 35%, #EDD97A 55%, var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.25;
+}
+
+/* ══ DIVIDER ══ */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px auto;
+  max-width: 80%;
+  position: relative;
+  z-index: 2;
+}
+.divider-line { flex: 1; height: 1.5px; background: linear-gradient(90deg,transparent,var(--gold),transparent); }
+.divider-gem  { color: var(--gold); font-size: 16px; }
+
+/* ══ HOST SECTION ══ */
+.host-section {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 4px 24px 0;
+  line-height: 1.7;
+}
+.host-bold {
+  font-family: 'EB Garamond', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--maroon-d);
+  display: block;
+}
+.host-italic {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #5a2a0a;
+  display: block;
+  margin: 4px 0;
+}
+
+/* ══ COUPLE NAMES ══ */
+.names-section {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 10px 20px;
+}
+.chy-label { font-size: 0.95rem; color: var(--maroon); font-style: italic; }
+.groom-name { font-family: 'Cinzel Decorative', cursive; font-size: 1.9rem; color: var(--maroon); font-weight: 700; }
+.with-line { font-family: 'Cinzel Decorative', cursive; font-size: 1.2rem; font-weight: 700; color: var(--gold-dark); margin: 8px 0; display: block; }
+.bride-name { font-family: 'Cinzel Decorative', cursive; font-size: 1.9rem; color: var(--saffron); font-weight: 700; }
+.bride-parents { font-size: 1rem; color: #5a2a0a; font-style: italic; margin-top: 6px; line-height: 1.5; }
+
+/* ══ CARD GRID ══ */
+.events {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px 24px;
+}
+@media (max-width: 600px) {
+  .events { grid-template-columns: 1fr; padding: 16px 20px; }
+  .tel-footer-grid { grid-template-columns: 1fr !important; gap: 16px; }
+  .eng-footer { grid-template-columns: 1fr !important; padding: 20px 24px; }
+  .eng-footer-col:first-child { border-right: none !important; border-bottom: 1px solid rgba(201,168,76,0.25); padding-bottom: 16px; margin-bottom: 16px; }
+  .h-title { font-size: 1.5rem; }
+  .groom-name, .bride-name { font-size: 1.6rem; }
+}
+.evt {
+  border: 1px solid rgba(201,168,76,0.5);
+  border-radius: 4px;
+  padding: 16px;
+  text-align: center;
+  background: linear-gradient(160deg, rgba(254,249,236,0.95), rgba(255,253,245,0.98));
+}
+.evt-label { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dark); font-family: 'Cinzel', serif; font-weight: 700; }
+.evt-icon { font-size: 1.6rem; display: block; margin-bottom: 4px; }
+.evt-head { font-family: 'Cinzel', serif; font-size: 0.88rem; color: var(--maroon); font-weight: 700; margin-top: 10px; }
+.evt-date { font-weight: 700; font-size: 1rem; color: var(--maroon-d); line-height: 1.4; }
+.evt-sub { font-size: 0.92rem; color: #4a2010; line-height: 1.5; }
+.evt-nakshatra { font-size: 0.88rem; font-style: italic; font-weight: 600; color: var(--gold-dark); }
+
+/* ══ ENGLISH FOOTER ══ */
+.eng-footer {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px 24px;
+  background: rgba(201,168,76,0.03);
+  border-top: 1px solid rgba(201,168,76,0.2);
+}
+.eng-footer-col { text-align: center; padding: 0 10px; }
+.eng-footer-col:first-child { border-right: 1px solid rgba(201,168,76,0.2); }
+.footer-label { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dark); font-family: 'Cinzel', serif; font-weight: 700; }
+.footer-name { font-weight: 700; font-size: 1rem; color: var(--maroon-d); line-height: 1.5; }
+.footer-addr { font-size: 0.88rem; color: #5a2a0a; line-height: 1.5; }
+.footer-phone { font-size: 0.88rem; color: var(--maroon); font-weight: 700; margin-top: 6px; }
+
+/* ══ TELUGU SECTION ══ */
+.telugu-wrap {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(254,249,236,1) 0%, rgba(255,253,245,1) 100%);
+  border-top: 2px dashed var(--gold);
+  border-bottom: 2px dashed var(--gold);
+  padding: 24px;
+  margin: 10px 0;
+}
+.tel-auspicious { display: flex; justify-content: space-around; font-family: 'Noto Sans Telugu', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--maroon); margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+.tel-slokam { font-family: 'Noto Sans Telugu', sans-serif; font-size: 0.85rem; color: #5a2a0a; text-align: center; line-height: 1.7; margin: 10px auto; background: rgba(201,168,76,0.04); padding: 10px; border-radius: 4px; border-left: 3px solid var(--gold); }
+.tel-body { font-family: 'Noto Sans Telugu', sans-serif; font-size: 0.95rem; color: var(--brown); line-height: 2; text-align: center; }
+.tel-heading-main { font-size: 1.2rem; font-weight: 700; color: var(--maroon); }
+.tel-bold { font-weight: 700; color: var(--maroon-d); }
+.tel-name-groom { font-size: 1.5rem; font-weight: 700; color: var(--maroon); display: block; }
+.tel-name-bride { font-size: 1.5rem; font-weight: 700; color: var(--saffron); display: block; }
+.tel-section-title { font-size: 1.05rem; font-weight: 700; color: var(--gold-dark); margin-top: 14px; display: block; text-decoration: underline; }
+.tel-footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; border-top: 1px solid rgba(201,168,76,0.25); padding-top: 14px; }
+.tel-footer-col { font-family: 'Noto Sans Telugu', sans-serif; font-size: 0.88rem; color: var(--brown); text-align: center; }
+.tel-footer-col span { font-weight: 700; color: var(--maroon-d); display: block; font-size: 0.95rem; }
+
+.compliments { position: relative; z-index: 2; text-align: center; padding: 20px 24px; font-style: italic; font-size: 1.05rem; color: var(--gold-dark); font-weight: 600; }
+.om-symbol { font-size: 1.6rem; color: var(--gold); display: block; }
+
+/* ── AUDIO CONTROLLER ── */
+.player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: linear-gradient(135deg, #3a1500, #150500);
+  border: 2px solid var(--gold);
+  border-radius: 50px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+.play-btn { width: 32px; height: 32px; background: linear-gradient(135deg, var(--gold-light), var(--gold)); border: none; border-radius: 50%; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.player-info { line-height: 1.3; }
+.p-title    { font-size: 0.8rem; color: var(--gold-light); font-family: 'Cinzel', serif; font-weight: 600; }
+.p-status   { font-size: 0.65rem; color: rgba(255,248,238,0.65); }
+.audio-bars { display: flex; align-items: flex-end; gap: 2.5px; height: 18px; }
+.bar { width: 3px; background: var(--gold-light); animation: sound-wave 1.2s ease-in-out infinite; }
+.bar:nth-child(1) { height: 6px;  animation-delay: 0s; }
+.bar:nth-child(2) { height: 14px; animation-delay: 0.15s; }
+.bar:nth-child(3) { height: 10px; animation-delay: 0.3s; }
+.bar:nth-child(4) { height: 18px; animation-delay: 0.05s; }
+.bar:nth-child(5) { height: 8px;  animation-delay: 0.2s; }
+@keyframes sound-wave {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.4; }
+  50%      { transform: scaleY(1);   opacity: 1; }
+}
+.audio-bars.paused .bar { animation-play-state: paused; opacity: 0.3; transform: scaleY(0.4); }
+
+/* ══ FIXED & ENHANCED ROBUST FLOWER PETALS FALLING EFFECT ══ */
+.petals-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -40px;
+  font-size: 22px;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.85;
+  animation: floatDown linear infinite;
+}
+
+@keyframes floatDown {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(105vh) rotate(540deg) translateX(80px);
+    opacity: 0;
+  }
+}
+
+.music-prompt {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 5, 0, 0.96);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--ivory);
+  text-align: center;
+  padding: 24px;
+}
+.music-prompt-btn {
+  background: linear-gradient(135deg, var(--gold-dark), var(--maroon));
+  color: white;
+  border: 2px solid var(--gold);
+  padding: 14px 28px;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="music-prompt" id="welcomeOverlay">
+  <div style="font-size: 3rem; margin-bottom: 8px;">✨ 🪔 ✨</div>
+  <h2 style="font-family: 'Cinzel Decorative', cursive; color: var(--gold); font-size: 1.5rem; margin-bottom: 8px;">Kotra's Wedding Invitation</h2>
+  <p style="font-style: italic; font-size: 1rem; max-width: 450px; color: #dcd0b8;">Welcome to the auspicious wedding celebration of Sravanth and Sowmya. Click below to open the invitation with music.</p>
+  <button class="music-prompt-btn" onclick="enterInvitation()">ENTER &amp; PLAY MUSIC</button>
+</div>
+
+<!-- CONTAINER FOR FLATTERING PETALS -->
+<div class="petals-container" id="petalsContainer"></div>
+
+<div class="glow-wrap">
+<div class="card">
+
+  <div class="mandala">
+    <svg viewBox="0 0 500 500">
+      <g transform="translate(250,250)">
+        <circle r="235" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <circle r="195" fill="none" stroke="#C9A84C" stroke-width="0.5"/>
+        <circle r="155" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <circle r="75"  fill="none" stroke="#C9A84C" stroke-width="1"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="frame"></div>
+  <div class="c c-tl"><svg viewBox="0 0 54 54"><path d="M4 4h46v5H9v41H4z" fill="#C9A84C" opacity=".6"/></svg></div>
+  <div class="c c-tr"><svg viewBox="0 0 54 54"><path d="M4 4h46v5H9v41H4z" fill="#C9A84C" opacity=".6"/></svg></div>
+  <div class="c c-bl"><svg viewBox="0 0 54 54"><path d="M4 4h46v5H9v41H4z" fill="#C9A84C" opacity=".6"/></svg></div>
+  <div class="c c-br"><svg viewBox="0 0 54 54"><path d="M4 4h46v5H9v41H4z" fill="#C9A84C" opacity=".6"/></svg></div>
+
+  <div class="torana-row">
+    <div class="flag f-s"></div><div class="flag f-r"></div><div class="flag f-g"></div><div class="flag f-y"></div>
+    <div class="flag f-s"></div><div class="flag f-r"></div><div class="flag f-g"></div><div class="flag f-y"></div>
+    <div class="flag f-s"></div><div class="flag f-r"></div><div class="flag f-g"></div><div class="flag f-y"></div>
+    <div class="flag f-s"></div><div class="flag f-r"></div><div class="flag f-g"></div><div class="flag f-y"></div>
+  </div>
+
+  <div class="header">
+    <div class="deity-logo">🦚</div>
+    <h1 class="h-title">Wedding Invitation</h1>
+    
+    <div class="auspicious-sub">
+      <span>Srirasthu</span>
+      <span>Subhamasthu</span>
+      <span>Avighnamasthu</span>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-gem">✦</div><div class="divider-line"></div></div>
+
+  <div class="host-section">
+    <span class="host-bold">Kotra Suryanarayana Murthy, Smt. Lakshmi Kantham</span>
+    <span class="host-italic">Cordially invite your gracious presence with family &amp; Friends on the auspicious occasion of my Brother</span>
+    <span class="host-bold">Kotra Lakshmi Narayana, Smt. Parimala Jayalakshmi's Son</span>
+  </div>
+
+  <div class="names-section">
+    <div class="chy-label">Chy.</div>
+    <h2 class="groom-name">Soma Shankar Sravanth</h2>
+    <span class="with-line">Weds</span>
+    <div class="chy-label">Chy. Sow.</div>
+    <h2 class="bride-name">Sree Sowmya</h2>
+    <div class="bride-parents">
+      (Daughter of Sri Tanikella Venkataramam, Smt. Anuradha<br>Secunderabad)
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-gem">❀</div><div class="divider-line"></div></div>
+
+  <div class="events">
+    <div class="evt">
+      <div class="evt-label">✦ SUMUHURTHAM ✦</div>
+      <span class="evt-icon">🪔</span>
+      <div class="evt-date">On Friday 03<sup>rd</sup> July 2026 at 02-00 am</div>
+      <div class="evt-sub" style="font-weight:600; color:var(--maroon);">(Early Hours Saturday)</div>
+      <div class="evt-nakshatra">Dhanista Nakshatrayuktha Mesha lagnam</div>
+      <div class="evt-head">VENUE</div>
+      <div class="evt-sub">Noma Kalyana Vedhika, Hall No:-2, Mallapur Road<br>Nacharam, Secunderabad</div>
+    </div>
+
+    <div class="evt">
+      <div class="evt-label">✦ DINNER &amp; RECEPTION ✦</div>
+      <span class="evt-icon">🍽️</span>
+      <div class="evt-head" style="margin-top:0;">DINNER</div>
+      <div class="evt-date">On Friday 03<sup>rd</sup> July 2026</div>
+      <div class="evt-sub">Night 07-00 pm onwards at the Venue</div>
+      <div class="evt-head">RECEPTION</div>
+      <div class="evt-date">On Thursday 09<sup>th</sup> July 2026</div>
+      <div class="evt-sub">Night 07-00 pm onwards at<br><strong>Sri Krishna Sai Kalyana Mandapam</strong><br>Rajahmundry</div>
+    </div>
+  </div>
+
+  <div class="eng-footer">
+    <div class="eng-footer-col">
+      <div class="footer-label">From:</div>
+      <div class="footer-name">Sri Kotra Lakshmi Narayana<br>Smt. Parimala Jayalakshmi</div>
+      <div class="footer-addr">#16-5-1, Sri Padma Sai Apt, Rajahmundry</div>
+      <div class="footer-phone">Cell: 9866847334, 9666770760</div>
+    </div>
+    <div class="eng-footer-col">
+      <div class="footer-label">Invited By:</div>
+      <div class="footer-name">Sri Kotra Suryanarayana Murthy<br>Smt. Lakshmi Kantham</div>
+      <div class="footer-addr" style="margin-top:10px; font-style:italic; color:var(--gold-dark);">To Smt &amp; Sri ...</div>
+    </div>
+  </div>
+
+  <div class="telugu-wrap">
+    <div class="tel-auspicious">
+      <span>శ్రీరస్తు</span><span>శుభమస్తు</span><span>అవిఘ్నమస్తు</span><span>శ్రీమాత్రేనమ:</span>
+    </div>
+    <div class="tel-slokam">
+      శ్లో ॥ జానక్యాః కమలామలాంజలి పుటేయా : పద్మరాగాయితా : వ్యస్తా రాఘవ మస్తకేచ విలసత్కుంద ప్రసూనాయితా :
+    </div>
+    <div class="tel-body">
+      <div class="tel-heading-main">కొట్ర వారి వివాహ మహోత్సవ ఆహ్వాన శుభపత్రిక</div>
+      <span class="tel-bold">ది. 03-07-2026 రాత్రి గం॥ 02-00 ని॥లకు (తెల్లవారితే శనివారం)</span><br><br>
+      మా సోదరుడు <span class="tel-bold">కొట్ర లక్ష్మీ నారాయణ, శ్రీమతి పరిమళ జయలక్ష్మి దంపతుల కుమారుడు</span><br>
+      <span class="tel-name-groom">చి|| సోమశంకర్ స్రవంత్ కు</span>
+      <span class="tel-name-bride">చి||ల||సౌ|| శ్రీ సౌమ్య ను</span>
+      యిచ్చి వివాహము జరిపించుటకు నిశ్చయించినారు.<br>
+      <span class="tel-section-title">కళ్యాణ వేదిక</span>
+      <span class="tel-bold">నోమా కళ్యాణ వేదిక, నాచారం, సికింద్రాబాద్</span><br>
+      <span class="tel-section-title">విందు</span>
+      ది. 03-07-2026 శుక్రవారం రాత్రి 7-00 గం॥లకు కళ్యాణ వేదిక వద్ద
+    </div>
+    
+    <div class="tel-footer-grid">
+      <div class="tel-footer-col">
+        <span>ఆగమనాభిలాషులు:</span>
+        కొట్ర లక్ష్మీనారాయణ<br>శ్రీమతి పరిమళ జయలక్ష్మి
+      </div>
+      <div class="tel-footer-col">
+        <span>భవదీయులు:</span>
+        కొట్ర సూర్యనారాయణ మూర్తి<br>శ్రీమతి లక్ష్మీకాంతం
+      </div>
+    </div>
+  </div>
+
+  <div class="compliments">
+    <span class="om-symbol">ॐ</span>
+    With Best Compliments from Near &amp; Dear
+  </div>
+
+</div>
+</div>
+
+<div class="player" id="playerBar" onclick="toggleAudio()">
+  <button class="play-btn" id="playBtnSymbol">▶</button>
+  <div class="player-info">
+    <div class="p-title">🎵 Traditional Shehnai</div>
+    <div class="p-status" id="audioStatusText">Playing...</div>
+  </div>
+  <div class="audio-bars paused" id="visualizerBars">
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+  </div>
+</div>
+
+<audio id="bgMusicElement" loop preload="auto">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById('bgMusicElement');
+  const overlay = document.getElementById('welcomeOverlay');
+  const playBtn = document.getElementById('playBtnSymbol');
+  const statusTxt = document.getElementById('audioStatusText');
+  const visualBars = document.getElementById('visualizerBars');
+  let isPlaying = false;
+  music.volume = 0.3;
+
+  // FIXED: Dynamic, infinite petal generation injection logic to guarantee beautiful animation flow
+  const petalsContainer = document.getElementById('petalsContainer');
+  const petalTypes = ['🌸', '🌺', '🌼', '🌹', '💛'];
+  
+  function createPetal() {
+    const petal = document.createElement('div');
+    petal.classList.add('petal');
+    petal.innerText = petalTypes[Math.floor(Math.random() * petalTypes.length)];
+    petal.style.left = Math.random() * 100 + 'vw';
+    
+    const duration = 5 + Math.random() * 6;
+    petal.style.animationDuration = duration + 's';
+    
+    const size = 16 + Math.random() * 12;
+    petal.style.fontSize = size + 'px';
+    
+    petalsContainer.appendChild(petal);
+    
+    // Auto clear to prevent memory leaks
+    setTimeout(() => {
+      petal.remove();
+    }, duration * 1000);
+  }
+
+  // Continuously populate falling flowers
+  setInterval(createPetal, 400);
+
+  function enterInvitation() {
+    overlay.style.opacity = '0';
+    setTimeout(() => { overlay.style.display = 'none'; }, 400);
+    startAudio();
+  }
+  function startAudio() {
+    music.play().then(() => {
+      playBtn.textContent = '⏸';
+      statusTxt.textContent = 'Playing';
+      visualBars.classList.remove('paused');
+      isPlaying = true;
+    }).catch(() => { isPlaying = false; });
+  }
+  function toggleAudio() {
+    if (isPlaying) {
+      music.pause();
+      playBtn.textContent = '▶';
+      visualBars.classList.add('paused');
+      isPlaying = false;
+    } else {
+      music.play().then(() => {
+        playBtn.textContent = '⏸';
+        visualBars.classList.remove('paused');
+        isPlaying = true;
+      });
+    }
+  }
+</script>
+</body>
+</html>
